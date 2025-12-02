@@ -7,38 +7,48 @@ SECTION "Header", ROM0[$0100]
 
 SECTION "tiles", ROM0
 TileData:
-    INCBIN "charGB.bin"
+    ; INCBIN "charGB.bin"
+    INCBIN "Hello-CharLight.bin"
 TileDataEnd:
 
 SECTION "tilemap_data", ROM0
 TileMapData:
+
     ; -----------------------------
     ; Partie fixe : Hello world
     ; -----------------------------
-    db 8,37,44,44,47,0,55,47,50,44,36,0,41,46,0,1,19,13,70
-    ds 32-20,0              ; compléter la ligne à 32 tiles
+    db 1,3,4,4,5,0,2,5,6,4,7
+    ds 32-11,0
 
-    ; -----------------------------
-    ; Partie fixe : :)
-    ; -----------------------------
-    db 0,0,0,0,0,0,0,0,0,95,78
-    ds 32-11,0              ; compléter la ligne à 32 tiles
+    ds 32*32,0
 
-    ; -----------------------------
-    ; Partie vide pour séparer (15 lignes)
-    ; -----------------------------
-    ds 32*15,0
+    ; ; -----------------------------
+    ; ; Partie fixe : Hello world
+    ; ; -----------------------------
+    ; db 8,37,44,44,47,0,55,47,50,44,36,0,41,46,0,1,19,13,70
+    ; ds 32-20,0              ; compléter la ligne à 32 tiles
 
-    ; -----------------------------
-    ; Partie fixe : squach90
-    ; -----------------------------
-    db 0,0,0,0,0,0,51,49,53,33,35,40,94,85
-    ds 32-14,0              ; compléter la ligne à 32 tiles
+    ; ; -----------------------------
+    ; ; Partie fixe : :)
+    ; ; -----------------------------
+    ; db 0,0,0,0,0,0,0,0,0,95,78
+    ; ds 32-11,0              ; compléter la ligne à 32 tiles
 
-    ; -----------------------------
-    ; Remplir le reste du tilemap pour atteindre 32*32 = 1024 octets
-    ; -----------------------------
-    ds 1024 - (32*32),0     ; ici on complète pour éviter toute zone non initialisée
+    ; ; -----------------------------
+    ; ; Partie vide pour séparer (15 lignes)
+    ; ; -----------------------------
+    ; ds 32*15,0
+
+    ; ; -----------------------------
+    ; ; Partie fixe : squach90
+    ; ; -----------------------------
+    ; db 0,0,0,0,0,0,51,49,53,33,35,40,94,85
+    ; ds 32-14,0              ; compléter la ligne à 32 tiles
+
+    ; ; -----------------------------
+    ; ; Remplir le reste du tilemap pour atteindre 32*32 = 1024 octets
+    ; ; -----------------------------
+    ; ds 1024 - (32*32),0     ; ici on complète pour éviter toute zone non initialisée
 
 TileMapDataEnd:
 
